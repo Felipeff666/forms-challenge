@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { formularioRegistro } from './app.model';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,24 @@ export class AppComponent {
    /*  password:'' */
   }
   Data:any= localStorage.getItem('Usuario');
+  pokemones!:any;
+  nombre!:string;
+  imagen!:string;
+
+  constructor( private appService:AppService ){}
+
   ngOnInit(): void {
       this.Data = JSON.parse(this.Data);
+
+      this.appService.obtenerDatos().subscribe(
+        (valor)=>{
+          this.pokemones = valor;
+          this.imagen=this.pokemones.sprites.front_default;
+          this.nombre = this.pokemones.name
+          console.log(this.pokemones);
+      });
+
+
   }
 
 
