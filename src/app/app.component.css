@@ -10,6 +10,8 @@
   background-position-x:50% ;
 }
 
+
+
 .formContainer{
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -114,4 +116,23 @@ tbody,td{
   color: rgb(0, 0, 0);
   border-bottom: 0.5px solid white;
 
+}
+
+@media (max-width:425px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .formContainer{
+    width: 100%;
+    margin:0px;
+  }
+
+  .tableContainer{
+    width: 100%;
+    margin:0px;
+    margin-top: 5px;
+  }
 }
